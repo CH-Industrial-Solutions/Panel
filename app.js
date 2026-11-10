@@ -13,6 +13,7 @@ const CARPETA_MAIL = "Correos importantes";
 
 const $ = (s, r = document) => r.querySelector(s);
 const uid = () => Math.random().toString(36).slice(2, 10);
+let modoEdicion = false; // false = uso normal (clic abre el enlace); true = editar accesos
 
 const estado = {
   config: null,
@@ -726,7 +727,7 @@ function crearOrbita(sec) {
 function crearTile(sec, it) {
   const a = document.createElement("a");
   a.className = `tile t-${it.tam || "s"}${it.nombreVis === false ? " solo" : ""}`;
-  a.draggable = true;
+  a.draggable = modoEdicion;
   a.href = it.url || "#";
   a.target = "_blank";
   a.rel = "noopener";
@@ -739,7 +740,10 @@ function crearTile(sec, it) {
     <button class="edit" title="Editar">✎</button>`;
 
   a.querySelector(".edit").addEventListener("click", e => { e.preventDefault(); e.stopPropagation(); abrirEditor(it.id, sec.id); });
-  a.addEventListener("click", e => { if (!it.url) { e.preventDefault(); abrirEditor(it.id, sec.id); } });
+  a.addEventListener("click", e => {
+    if (modoEdicion) { e.preventDefault(); abrirEditor(it.id, sec.id); return; }
+    if (!it.url) { e.preventDefault(); toast("Sin dirección. Pulsa «Editar accesos» para asignarla."); }
+  });
 
   a.addEventListener("dragstart", e => {
     estado.arrastrando = { seccion: sec.id, id: it.id };
@@ -1032,6 +1036,17 @@ function iniciarReloj() {
   mover();
   setInterval(mover, 250);
 }
+
+/* ---------- Modo edición de accesos ---------- */
+function alternarEdicion() {
+  modoEdicion = !modoEdicion;
+  document.body.classList.toggle("modo-edicion", modoEdicion);
+  const b = $("#btnEditar");
+  b.textContent = modoEdicion ? "✔ Terminar edición" : "✎ Editar accesos";
+  b.classList.toggle("primary", modoEdicion);
+  render();
+}
+$("#btnEditar").addEventListener("click", alternarEdicion);
 
 /* ---------- Tema: oscuro (por defecto) / blanco. Se recuerda en IndexedDB ---------- */
 function aplicarTema(t) {
