@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CH Industrial Solutions · Panel de trabajo</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Lectura/escritura del Excel de accesos (SheetJS). Requiere internet la primera vez. -->
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar glass">
+    <img class="side-logo-img" src="assets/logos/logo-1.png" alt="CH Industrial Solutions">
+    <nav>
+      <a class="nav-btn active" href="#inicio" title="Inicio">⌂<span>Inicio</span></a>
+      <a class="nav-btn" href="#accesos" title="Accesos">▦<span>Accesos</span></a>
+      <a class="nav-btn" href="#notas" title="Notas">☰<span>Notas</span></a>
+      <a class="nav-btn" href="#correos" title="Correos">✉<span>Correos</span></a>
+      <button class="nav-btn" id="navCarpeta" title="Carpeta de trabajo">▣<span>Carpeta</span></button>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="topbar glass" id="inicio">
+      <div class="brand">
+        <img class="logo-img" src="assets/logos/logo-1.png" alt="CH Industrial Solutions">
+        <div class="brand-text">
+          <h1>CH Industrial Solutions</h1>
+          <p>Automation · Data · Logistics</p>
+        </div>
+      </div>
+
+      <div class="search glass">
+        <input id="search" type="search" placeholder="Buscar en tu workspace...">
+        <button id="searchGo" aria-label="Buscar">→</button>
+      </div>
+
+      <div class="clock-wrap">
+        <svg id="clock" viewBox="0 0 200 200" aria-label="Reloj analógico"></svg>
+        <div class="clock-date" id="fecha"></div>
+      </div>
+    </header>
+
+    <div class="barra-trabajo">
+      <div class="workspace-bar glass ws-box">
+        <span class="dot" id="wsDot"></span>
+        <span id="wsStatus">Sin carpeta de trabajo</span>
+        <div class="ws-actions">
+          <button id="btnPick">Elegir carpeta</button>
+          <button id="btnReconectar" class="hidden">Reconectar</button>
+          <button id="btnTema">◑ Tema blanco</button>
+          <button id="btnGuardar" disabled>Guardar ahora</button>
+        </div>
+      </div>
+      <aside id="jarvis" class="jarvis glass" aria-live="polite">
+        <div class="jarvis-wave" id="jarvisWave"></div>
+        <div class="jarvis-texto">
+          <div class="jarvis-cabeza">
+            <span class="jarvis-tag">J.A.R.V.I.S.</span>
+            <button id="jarvisPower" class="jarvis-pow">● Activo</button>
+          </div>
+          <p class="jarvis-msg" id="jarvisMsg"></p>
+          <p class="jarvis-frase" id="jarvisFrase"></p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="grid" id="accesos" aria-label="Accesos directos"></section>
+
+    <section class="bottom">
+      <div class="panel glass" id="notas">
+        <header class="panel-head">
+          <h2>Notas</h2>
+          <div class="tabs">
+            <button class="tab active" data-filtro="todas">Todas</button>
+            <button class="tab" data-filtro="pendiente">Pendientes</button>
+            <button class="tab" data-filtro="ejecutado">Ejecutadas</button>
+          </div>
+        </header>
+        <form id="notaForm" class="nota-form">
+          <input id="notaInput" placeholder="Nueva nota..." maxlength="300">
+          <button type="submit">Agregar</button>
+        </form>
+        <ul class="notas-list" id="notasList"></ul>
+      </div>
+
+      <div class="panel glass" id="correos">
+        <header class="panel-head">
+          <h2>Correos importantes</h2>
+          <span class="muted" id="mailCount"></span>
+        </header>
+        <div class="dropzone" id="dropzone">
+          Arrastra aquí correos desde Outlook<br>
+          <small>Se guardan en la carpeta de trabajo, en «Correos importantes»</small>
+        </div>
+        <ul class="mail-list" id="mailList"></ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Diálogo de edición de acceso -->
+<dialog id="editDlg" class="glass-dlg">
+  <form method="dialog" id="editForm">
+    <h3 id="editTitulo">Acceso</h3>
+    <label>Nombre<input name="nombre" required maxlength="60"></label>
+    <label>Enlace (URL o ruta)<input name="url" placeholder="https://... o C:\ruta\archivo"></label>
+    <label>Sección
+      <select name="seccion"></select>
+    </label>
+    <label>Tamaño
+      <select name="tam">
+        <option value="s">Pequeño (1 × 1)</option>
+        <option value="w">Ancho (2 × 1)</option>
+        <option value="l">Grande (2 × 2)</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" name="nombreVis"> Mostrar nombre (desactivado = solo imagen)</label>
+    <label>Imagen del botón
+      <input type="file" name="imagen" accept="image/*">
+    </label>
+    <div class="dlg-actions">
+      <button type="button" id="editEliminar" class="danger">Eliminar</button>
+      <span class="grow"></span>
+      <button type="button" id="editCancelar">Cancelar</button>
+      <button type="submit" value="ok" class="primary">Guardar</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

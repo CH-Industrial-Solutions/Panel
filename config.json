@@ -1,0 +1,100 @@
+{
+  "marca": {
+    "nombre": "CH Industrial Solutions",
+    "lema": "Automation · Data · Logistics",
+    "producto": "QORVEX",
+    "frase": "Innovación · Eficiencia · Resultados"
+  },
+  "secciones": [
+    {
+      "id": "sharepoint",
+      "titulo": "SharePoint",
+      "icono": "S",
+      "max": 12,
+      "items": [
+        { "nombre": "QORVEX Portal", "url": "", "imagen": "assets/logos/logo-1.png" },
+        { "nombre": "Recursos TI", "url": "", "imagen": "" },
+        { "nombre": "Logística Central", "url": "", "imagen": "" },
+        { "nombre": "Documentos Generales", "url": "", "imagen": "" }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "Carpetas",
+      "icono": "▣",
+      "max": 12,
+      "items": [
+        { "nombre": "Proyectos QORVEX", "url": "", "imagen": "assets/logos/logo-2.png" },
+        { "nombre": "REVOX", "url": "", "imagen": "assets/logos/logo-4.png" },
+        { "nombre": "Reportes", "url": "", "imagen": "" },
+        { "nombre": "Capturas", "url": "", "imagen": "" }
+      ]
+    },
+    {
+      "id": "sistemas",
+      "titulo": "Sistemas y herramientas",
+      "icono": "⚙",
+      "max": 12,
+      "items": [
+        { "nombre": "QORVEX V8", "url": "", "imagen": "assets/logos/logo-3.png" },
+        { "nombre": "REVOX V1.0.0", "url": "", "imagen": "assets/logos/logo-5.png" },
+        { "nombre": "Etiquetas (REVOX)", "url": "", "imagen": "" },
+        { "nombre": "Calculadora", "url": "", "imagen": "" }
+      ]
+    },
+    {
+      "id": "aplicaciones",
+      "titulo": "Aplicaciones",
+      "icono": "▦",
+      "max": 20,
+      "items": [
+        { "nombre": "Excel", "url": "", "imagen": "" },
+        { "nombre": "Google Chrome", "url": "", "imagen": "" },
+        { "nombre": "Outlook", "url": "", "imagen": "" },
+        { "nombre": "Teams", "url": "", "imagen": "" }
+      ]
+    },
+    {
+      "id": "proyectos",
+      "titulo": "Proyectos y Procesos",
+      "icono": "◈",
+      "max": 8,
+      "items": [
+        { "nombre": "Validación QORVEX", "url": "", "imagen": "" },
+        { "nombre": "Secuencia QORVEX", "url": "", "imagen": "" },
+        { "nombre": "Reportes Operativos", "url": "", "imagen": "" },
+        { "nombre": "Plan de Trabajo", "url": "", "imagen": "" }
+      ]
+    },
+    {
+      "id": "proyectos_ch",
+      "titulo": "Proyectos CH",
+      "icono": "◆",
+      "max": 10,
+      "items": [
+        { "nombre": "Proyecto CH 01", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_01.png" },
+        { "nombre": "Proyecto CH 02", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_02.png" },
+        { "nombre": "Proyecto CH 03", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_03.png" },
+        { "nombre": "Proyecto CH 04", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_04.png" },
+        { "nombre": "Proyecto CH 05", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_05.png" },
+        { "nombre": "Proyecto CH 06", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_06.png" },
+        { "nombre": "Proyecto CH 07", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_07.png" },
+        { "nombre": "Proyecto CH 08", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_08.png" },
+        { "nombre": "Proyecto CH 09", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_09.png" },
+        { "nombre": "Proyecto CH 10", "url": "", "imagen": "assets/circulares/CH_ICON_CIRCULAR_10.png" }
+      ]
+    },
+    {
+      "id": "enlaces",
+      "titulo": "Enlaces Útiles",
+      "icono": "∞",
+      "max": 10,
+      "items": [
+        { "nombre": "Google", "url": "https://www.google.com", "imagen": "" },
+        { "nombre": "YouTube", "url": "https://www.youtube.com", "imagen": "" },
+        { "nombre": "ChatGPT", "url": "https://chatgpt.com", "imagen": "" },
+        { "nombre": "LinkedIn", "url": "https://www.linkedin.com", "imagen": "" }
+      ]
+    }
+  ]
+}
